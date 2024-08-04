@@ -1,0 +1,106 @@
+# Copyright (C) 2021 Flux Auto India Pvt. Ltd.
+# CI pipeline for ROS packages(flux_msgs) for Thor Project
+# Created by: Shilpaj Bhalerao
+# Date: Jul 12, 2021
+
+image: ros:melodic
+
+
+cache:
+  paths:
+    - ~/.cache/pip/
+
+stages:
+    - build
+    - code analysis - static
+    - code analysis - dynamic
+    - test
+
+before_script:
+  - sudo apt-get update
+  - sudo apt-get install python3-pip -y
+
+
+Build:
+  stage: build
+  only:
+    - master
+    - merge_requests
+  script:
+    - echo "Build Stage for static and dynamic analysis"
+    - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - mkdir -p ~/catkin_ws/src/${CI_PROJECT_TITLE}
+    - cp -r . ~/catkin_ws/src/${CI_PROJECT_TITLE}/.
+    - cd ~/catkin_ws
+    - catkin_make
+  artifacts:
+    untracked: true
+
+
+Catkin_lint:
+  stage: code analysis - static
+  only:
+  - master
+  - merge_requests
+  dependencies:
+    - Build
+  script:
+    - echo "Static Analysis"
+    - pip3 install catkin-lint
+    - cd ../..
+    - catkin_lint .
+
+Pylint:
+  only:
+  - master
+  - merge_requests
+  stage: code analysis - static
+  script:
+    - echo "Static Analysis of Python Code"
+    - pip3 install pylint==2.6.2
+    - find . -type f -name "*.py" | xargs pylint --fail-under=6 --max-line-length=120 --ignore=conf.py --generated-members=cv2,torch,numpy --min-similarity-lines=400
+
+Cpplint:
+  only:
+    - master
+    - merge_requests
+  stage: code analysis - static
+  script:
+    - echo "Static Analysis"
+    - pip3 install cpplint
+    - cpplint --recursive .
+
+Dynamic Analysis:
+  only:
+    - master
+    - merge_requests
+  stage: code analysis - dynamic
+  script: echo "Dynamic Analysis"
+
+Unit Testing:
+  only:
+    - master
+    - merge_requests
+  stage: test
+  script:
+    - pip3 install pytest
+    # - cd ${CI_PROJECT_TITLE}
+    # - pytest
+
+Node tests:
+  only:
+    - master
+    - merge_requests
+  stage: test
+  dependencies: 
+    - Build
+  script: echo "Node tests using launch files"
+
+Integration tests:
+  only:
+    - master
+    - merge_requests
+  stage: test
+  dependencies: 
+    - Build
+  script: echo "Integration tests using launch files"

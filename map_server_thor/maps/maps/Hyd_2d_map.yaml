@@ -1,0 +1,7 @@
+image: Hyd_2d_map.pgm
+resolution: 0.050000
+origin: [-12.505708, -3.924361, -0.0174533]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

@@ -1,0 +1,7 @@
+Header header
+geometry_msgs/Point front_left
+geometry_msgs/Point front_right
+geometry_msgs/Point rear_left
+geometry_msgs/Point rear_right
+geometry_msgs/Point fork_left
+geometry_msgs/Point fork_right

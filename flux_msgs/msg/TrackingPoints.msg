@@ -1,0 +1,9 @@
+Header header
+geometry_msgs/Point fork_left
+geometry_msgs/Point fork_right
+geometry_msgs/Point fork_center
+geometry_msgs/Point wheel_left
+geometry_msgs/Point wheel_right
+geometry_msgs/Point wheel_center
+geometry_msgs/Point driving_wheel
+geometry_msgs/Point geometric_center

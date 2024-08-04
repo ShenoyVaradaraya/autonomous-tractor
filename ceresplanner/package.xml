@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ceresplanner</name>
+  <version>0.0.0</version>
+  <description>The tractor package</description>
+
+  <maintainer email="shivam.nagar@fluxauto.xyz">Shivam-Nagar</maintainer>
+  <maintainer email="saksham.kukreja@fluxauto.xyz">Saksham-Kukreja</maintainer>
+  <maintainer email="ashrith.shreekanth@fluxauto.xyz">Ashrith-Shreekanth</maintainer>
+  <maintainer email="varadaraya.shenoy@fluxauto.xyz">Varadaraya-Ganesh</maintainer>
+  <maintainer email="saransh.gupta@fluxauto.xyz">Saransh-Gupta</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>rviz</exec_depend> 
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>roslib</depend>
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+
+</package>

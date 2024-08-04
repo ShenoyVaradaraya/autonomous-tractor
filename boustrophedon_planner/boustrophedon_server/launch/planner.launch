@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <!--<arg name="foo" default="true">-->
+    <!--<group if="$(arg foo)">-->
+    <include file="$(find map_server)/launch/map_server_custom.launch" />
+    <!--</group>-->
+    <include file="$(find boustrophedon_server)/launch/boustrophedon_server.launch" />
+    <node pkg="boustrophedon_server" name="boustrophedon_client" type="boustrophedon_client" output="screen"/>
+    <node pkg="boustrophedon_server" name="local_planner" type="local_planner" output="screen"/>
+</launch>

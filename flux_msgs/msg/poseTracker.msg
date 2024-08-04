@@ -1,0 +1,2 @@
+geometry_msgs/Point junction
+std_msgs/Int16 vehicles

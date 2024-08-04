@@ -1,0 +1,16 @@
+image: os_corrected_1.pgm
+resolution: 0.050000
+# origin: [-4.424802, -9.034230, -0.00872665]
+origin: [-4.424802, -9.034230, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+
+
+
+rosparam set tf_x 0.22
+rosparam set tf_y 0.44
+rosparam set tf_z 0.8
+rosparam set tf_roll 0
+rosparam set tf_pitch 0.00872665
+rosparam set tf_yaw 0

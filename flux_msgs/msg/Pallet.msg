@@ -1,0 +1,11 @@
+Header header
+string palletID
+float32 pointLeft_x
+float32 pointLeft_y
+float32 pointLeft_z
+float32 pointRight_x
+float32 pointRight_y
+float32 pointRight_z
+float32 roll
+float32 pitch
+float32 yaw

@@ -1,0 +1,13 @@
+float32 x
+float32 y
+float32 z
+float32 orien
+float32 g
+float32 f
+int32 ind
+int32 parent
+float32 delta
+float32 velocity
+int8 velConstraint
+float32 time
+int8 agent_id

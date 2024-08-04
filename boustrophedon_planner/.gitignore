@@ -1,0 +1,4 @@
+boustrophedon_server/scripts
+.clang-tidy
+.clang-format
+.git

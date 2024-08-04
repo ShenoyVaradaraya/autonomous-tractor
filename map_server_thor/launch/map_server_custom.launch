@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="1 0 0 0 0 0 1 /rslidar /map 10" />
+
+  <!-- Run the map server -->
+  <!-- <arg name="map_file" default="$(find map_server)/maps/warehouse2.yaml"/> -->
+  <!-- <arg name="map_file" default="$(find map_server)/maps/today_ware_1_2.yaml"/> -->
+  <arg name="map_file" default="$(find map_server)/maps/maps/ceres_map.yaml"/>
+  <!-- <arg name="map_file" default="$(find map_server)/maps/os_container_2.yaml"/> -->
+  <!-- <arg name="map_file" default="$(find map_server)/maps/willow_garage_map.yaml"/> -->
+  <!--<arg name="map_file" default="$(find map_server)/maps/maps/hyd_day_3_2.yaml"/>-->
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" output="screen"/>
+    
+
+</launch>
